@@ -1,83 +1,99 @@
 # SelectCode LLM-App
 
-Dieses Repository enthält das Grundgerüst einer LLM-Chat-Anwendung basierend auf [Chainlit](https://github.com/Chainlit/chainlit).
-Deine Aufgabe ist es, innerhalb der gegebenen Zeit die coolste Anwendung zu bauen.
+This repository contains the code for the practical component of the SelectCode AI Workshop.
+Your task is to build the coolest application within the given time.
 
-## Slides
-[Link](https://www.canva.com/design/DAFk3iIbilU/l_IYCfPlQkdqE_v43A-i_g/view?utm_content=DAFk3iIbilU&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink)
-
-## Colab
-Falls du lokal keine Python-Installation hast, kannst du das [hier](https://colab.research.google.com/drive/1lTHXzEa7o7hPqyUXvYVkyADaV1AR4zg8?usp=sharing) hinterlegte Notebook nutzen.
-
-## Installieren
-
-Bevor du mit der Installation beginnst, stelle bitte sicher, dass du entweder [venv](https://docs.python.org/3/library/venv.html) oder [Conda](https://docs.python.org/3/library/venv.html) auf deinem System installiert hast.
+## Links
+- [Slides](https://www.canva.com/design/DAFrFSYhC6c/_w-0KrluvJb7tIdJ04OrSw/view?utm_content=DAFrFSYhC6c&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink)
+- [API Key]() - Want to continue building after the workshop? You can easily create your own key in the [OpenAI portal](platform.openai.com/).
 
 
-### Mit venv
+## Option 1: Langchain
+<details>
+  <summary>Details</summary>
+If you just want to work directly with [Langchain](https://github.com/langchain-ai/langchain), simply install it using
 
-Folge diesen Schritten, um ein virtuelles Environment mit venv zu erstellen und zu aktivieren:
 
 ```bash
-# Navigiere in das Repository
-cd ./llm-example
-
-# Erstelle ein virtuelles Environment
+# Create a virtual environment
 python3 -m venv env
 
-# Aktiviere das virtuelle Environment
-# Für Windows
+# Activate the virtual environment
+# For Windows
 env\Scripts\activate
-
-# Für Unix oder MacOS
+# For Unix or MacOS
 source env/bin/activate
-```
 
-Danach installiere die Abhängigkeiten aus der `requirements.txt` Datei:
+# Install langchain
+pip install langchain
+```
+</details>
+
+## Option 2: Chainlit
+<details>
+  <summary>Details</summary>
+
+If you want to work with a pre-provided framework for a chat app, this repository contains some code to help you get started. Either use the provided [Colab](https://colab.research.google.com/drive/1lTHXzEa7o7hPqyUXvYVkyADaV1AR4zg8?usp=sharing) (note that this will mean that your progress will not be saved unless you export the files manually) or install it locally:
+
 
 ```bash
-pip install -r requirements.txt
+# Clone the repo
+git clone https://github.com/SelectCode/llm-example.git
 ```
 
-### Mit conda
-
-Folge diesen Schritten, um ein virtuelles Environment mit Conda zu erstellen und zu aktivieren:
+Next, input the OpenAI API Key in the `.env` file (just copy and paste it)
 
 ```bash
-# Navigiere in das Repository
+# Navigate into the repo
 cd ./llm-example
 
-# Erstelle ein Conda Environment
-conda create --name env
+# Create a virtual environment
+python3 -m venv env
 
-# Aktiviere das Environment
-conda activate env
-```
+# Activate the virtual environment
+# For Windows
+env\Scripts\activate
 
-Danach installiere die Abhängigkeiten aus der `requirements.txt` Datei:
+# For Unix or MacOS
+source env/bin/activate
 
-```bash
+# Install the dependencies from the `requirements.txt` file
 pip install -r requirements.txt
-```
 
-## API Key hinterlegen
-In `.env`, hinterlege den API Schlüssel, den du von uns erhalten hast. Du möchtest nach dem Workshop weiterbauen?
-Du kannst dir mit sehr wenig Aufwand bei [OpenAI](platform.openai.com/) deinen eigenen Schlüssel holen.
-
-## Starten
-
-Nach der Installation der Abhängigkeiten kannst du die Anwendung mit folgendem Befehl starten:
-
-```bash
+# Launch chainlit
 chainlit run app.py -w
 ```
 
-## Loslegen!
-Jetzt kannst du loslegen indem du verschiedene Langchain Komponenten in deine Anwendung integrierst - schau dir `app.py` an!
-In `utils.py` haben wir einige nützliche Methoden hinterlegt.
+### Get started!
+Now you can get started by integrating different langchain components into your application - have a look at `app.py`!
+In `utils.py` we have provided some useful methods.
 
-Du suchst Inspiration? Schau in der [Chainlit Dokumentation](https://docs.chainlit.io/integrations/langchain) oder der [LangChain Übersicht an beliebten Chains](https://python.langchain.com/docs/modules/chains/popular/) vorbei.
-Ebenfalls nützlich: Das [Chainlit Cookbook](https://github.com/Chainlit/cookbook/).
-Spannende Beispiele mit offenen APIs findest du z.B. in der [Übersicht der Langchain API Chains](https://python.langchain.com/docs/modules/chains/popular/api).
+Looking for inspiration? Check out the [Chainlit documentation](https://docs.chainlit.io/integrations/langchain) or the [LangChain overview of popular chains](https://python.langchain.com/docs/modules/chains/popular/).
+Also useful: the [Chainlit Cookbook](https://github.com/Chainlit/cookbook/).
+You can find exciting examples with open APIs in the [Overview of Langchain API Chains](https://python.langchain.com/docs/modules/chains/popular/api), for example.
+</details>
 
-Du fühlst dich eingeschränkt? Mit [Streamlit](https://streamlit.io/) kannst du mit ein wenig mehr Komplexität noch kreativer werden!
+
+## Option 3: Langflow
+<details>
+  <summary>Details</summary>
+If you prefer to work with a no-code tool instead, you could use [Langflow](https://github.com/logspace-ai/langflow).
+You can either use the provided Colab (note that this will mean that your progress will not be saved unless you export the files manually) or install the tool locally by
+
+```bash
+# Create a virtual environment
+python3 -m venv env
+
+# Activate the virtual environment
+# For Windows
+env\Scripts\activate
+# For Unix or MacOS
+source env/bin/activate
+
+# Install langflow
+pip install langflow
+
+# Launch langflow
+langflow
+```
+</details>
