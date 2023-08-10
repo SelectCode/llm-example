@@ -11,7 +11,8 @@ Your task is to build the coolest application within the given time.
 ## Option 1: Langchain
 <details>
   <summary>Details</summary>
-If you just want to work directly with [Langchain](https://github.com/langchain-ai/langchain), simply install it using
+  
+If you just want to work directly with [LangChain](https://github.com/langchain-ai/langchain), simply install it using
 
 
 ```bash
@@ -33,8 +34,11 @@ pip install langchain
 <details>
   <summary>Details</summary>
 
-If you want to work with a pre-provided framework for a chat app, this repository contains some code to help you get started. Either use the provided [Colab](https://colab.research.google.com/drive/1lTHXzEa7o7hPqyUXvYVkyADaV1AR4zg8?usp=sharing) (note that this will mean that your progress will not be saved unless you export the files manually) or install it locally:
+If you want to work with a pre-provided framework for a chat app, this repository contains some code to help you get started.
 
+> ℹ️ The easiest way to get started is to use [this Colab](https://colab.research.google.com/drive/1lTHXzEa7o7hPqyUXvYVkyADaV1AR4zg8?usp=sharing). Note that this will your progress will not be saved unless you export the files manually.
+
+Alternatively, to install locally:
 
 ```bash
 # Clone the repo
@@ -77,8 +81,12 @@ You can find exciting examples with open APIs in the [Overview of Langchain API 
 ## Option 3: Langflow
 <details>
   <summary>Details</summary>
-If you prefer to work with a no-code tool instead, you could use [Langflow](https://github.com/logspace-ai/langflow).
-You can either use the provided Colab (note that this will mean that your progress will not be saved unless you export the files manually) or install the tool locally by
+  
+If you prefer to work with a no-code tool instead, you could use Langflow. You can find more info in the [documentation](https://docs.langflow.org/).
+  
+> ℹ️ As long as you are fine with other people seeing your progress, you can use [our hosted platform](https://langflow.deploy.selectcode.dev/).
+  
+Otherwise you can either use the provided Colab (note that this will mean that your progress will not be saved unless you export the files manually) or install the tool locally by
 
 ```bash
 # Create a virtual environment
