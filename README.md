@@ -5,7 +5,7 @@ Your task is to build the coolest application within the given time.
 
 ## Links
 - [Slides](https://www.canva.com/design/DAFrFSYhC6c/_w-0KrluvJb7tIdJ04OrSw/view?utm_content=DAFrFSYhC6c&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink)
-- [API Key](link.selectcode.de/gpt-key) - Want to continue building after the workshop? You can easily create your own key in the [OpenAI portal](platform.openai.com/).
+- [API Key](https://link.selectcode.de/gpt-key) - Want to continue building after the workshop? You can easily create your own key in the [OpenAI portal](platform.openai.com/).
 
 
 ## Option 1: Langchain
