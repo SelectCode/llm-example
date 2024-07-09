@@ -9,6 +9,7 @@ from langchain_community.vectorstores import Chroma
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.chat_message_histories import ChatMessageHistory
 from langchain_openai import ChatOpenAI
+import tempfile
 
 index_name = "langchain-demo"
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=100)
@@ -16,30 +17,24 @@ embeddings = OpenAIEmbeddings(openai_api_base="https://llmproxy.meingpt.com")
 
 welcome_message = """PDF Chat Demo"""
 
-
 def process_file(file: AskFileResponse):
-    import tempfile
     if file.type == "text/plain":
         Loader = TextLoader
     elif file.type == "application/pdf":
         Loader = PyPDFLoader
 
-    with tempfile.NamedTemporaryFile(delete=False) as tempfile:
-        tempfile.write(file.content)
-        loader = Loader(tempfile.name)
-        documents = loader.load()
-        docs = text_splitter.split_documents(documents)
-        for i, doc in enumerate(docs):
-            doc.metadata["source"] = f"source_{i}"
-        return docs
-
+    loader = Loader(file.path)
+    documents = loader.load()
+    docs = text_splitter.split_documents(documents)
+    for i, doc in enumerate(docs):
+        doc.metadata["source"] = f"source_{i}"
+    return docs
 
 def get_docsearch(file: AskFileResponse):
     docs = process_file(file)
     cl.user_session.set("docs", docs)
     docsearch = Chroma.from_documents(docs, embeddings)
     return docsearch
-
 
 @cl.on_chat_start
 async def start():
@@ -57,7 +52,6 @@ async def start():
     msg = cl.Message(content=f"Processing `{file.name}`...")
     await msg.send()
 
-    # No async implementation in the Pinecone client, fallback to sync
     docsearch = await cl.make_async(get_docsearch)(file)
 
     message_history = ChatMessageHistory()
@@ -82,7 +76,6 @@ async def start():
     await msg.update()
 
     cl.user_session.set("chain", chain)
-
 
 @cl.on_message
 async def main(message: cl.Message):
